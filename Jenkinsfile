@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 node('master') {
     checkout scm
-    docker.withRegistry('', 'dockerhub'){
+    docker.withRegistry('', 'dockerhub-creds'){
         stage('build'){
             parallel([
                 8.0: {
