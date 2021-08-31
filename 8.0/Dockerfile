@@ -2,9 +2,6 @@ FROM php:8.0-fpm
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin
 
-ARG WWWUSER
-ARG WWWGROUP
-
 RUN apt-get update && apt install -y \
     git \
     ffmpeg \
