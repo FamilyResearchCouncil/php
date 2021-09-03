@@ -1,5 +1,7 @@
 FROM php:7.4-fpm
 
+ENV PATH="/var/www/.composer/vendor/bin:${PATH}"
+
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin
 
 RUN apt-get update && apt install -y \
@@ -7,7 +9,6 @@ RUN apt-get update && apt install -y \
     ffmpeg \
     jq \
     iputils-ping
-
 
 RUN chmod +x /usr/local/bin/install-php-extensions && sync \
     && install-php-extensions \

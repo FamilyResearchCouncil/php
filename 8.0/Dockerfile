@@ -1,5 +1,7 @@
 FROM php:8.0-fpm
 
+ENV PATH="/var/www/.composer/vendor/bin:${PATH}"
+
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin
 
 RUN apt-get update && apt install -y \
