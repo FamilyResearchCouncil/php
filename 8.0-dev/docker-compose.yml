@@ -1,4 +1,0 @@
-version: "3.8"
-services:
-  container:
-    image: familyresearchcouncil/php:8.0-fpm-dev

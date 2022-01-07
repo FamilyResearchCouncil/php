@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.0-fpm AS prod
 
 ENV PATH="/var/www/.composer/vendor/bin:${PATH}"
 
@@ -29,3 +29,6 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync \
     pdo_mysql \
     @composer
 
+FROM base AS dev
+
+RUN install-php-extensions xdebug
