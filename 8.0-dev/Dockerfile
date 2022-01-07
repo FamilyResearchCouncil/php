@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:8.0-fpm
 
 ENV PATH="/var/www/.composer/vendor/bin:${PATH}"
 
@@ -9,6 +9,7 @@ RUN apt-get update && apt install -y \
     ffmpeg \
     jq \
     iputils-ping
+
 
 RUN chmod +x /usr/local/bin/install-php-extensions && sync \
     && install-php-extensions \
@@ -23,6 +24,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync \
     pcntl \
     intl \
     sockets \
+    xdebug \
     ldap \
     oci8 \
     pdo_mysql \

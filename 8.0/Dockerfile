@@ -24,7 +24,6 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync \
     pcntl \
     intl \
     sockets \
-    xdebug \
     ldap \
     oci8 \
     pdo_mysql \
