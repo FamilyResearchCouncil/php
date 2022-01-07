@@ -21,7 +21,7 @@ node('master') {
                     if( env.BRANCH_NAME == 'master' ){
                         image.push()
                     }
-                }
+                },
                 (8.0-dev): {
                     def image = docker.build("familyresearchcouncil/php:8.0-fpm-dev", './8.0-dev')
                     if( env.BRANCH_NAME == 'master' ){
