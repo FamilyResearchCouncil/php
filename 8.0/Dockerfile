@@ -29,6 +29,6 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync \
     pdo_mysql \
     @composer
 
-FROM base AS dev
+FROM prod AS dev
 
 RUN install-php-extensions xdebug
