@@ -1,5 +1,8 @@
 FROM php:8.0-fpm AS prod
 
+ARG WWWUSER=1100
+ARG WWWGROUP=1100
+
 ENV PATH="/var/www/.composer/vendor/bin:${PATH}"
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin
@@ -28,6 +31,20 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync \
     oci8 \
     pdo_mysql \
     @composer
+
+RUN usermod -u "$WWWUSER" www-data \
+    groupmod -g "$WWWGROUP" www-data
+
+################################
+#          dev stage           #
+################################
+# installs xdebug              #
+#                              #
+# we don't want this in the    # 
+# production build because     #
+# it will slow down every      #
+# single request               #
+################################
 
 FROM prod AS dev
 
