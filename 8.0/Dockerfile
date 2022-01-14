@@ -33,7 +33,10 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync \
     @composer
 
 RUN usermod -u "$WWWUSER" www-data \
-    groupmod -g "$WWWGROUP" www-data
+    && groupmod -g "$WWWGROUP" www-data
+
+
+WORKDIR /var/www/html
 
 ################################
 #          dev stage           #
